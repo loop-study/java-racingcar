@@ -28,7 +28,8 @@ public class SetTest {
 
     @Test
     @DisplayName("Set size 확인")
-    public void setTest01() throws Exception {
+    public void getSetSize() throws Exception {
+        // then
         assertThat(numbers.size()).isEqualTo(3);
     }
 
@@ -36,14 +37,16 @@ public class SetTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3})
     @DisplayName("Set 값 존재여부 확인")
-    public void setTest02(int inputNumber) throws Exception {
+    public void setCheckValue(int inputNumber) throws Exception {
+        // then
         assertThat(numbers.contains(inputNumber)).isTrue();
     }
 
     @ParameterizedTest
     @CsvSource(value = {"0:false","1:true","2:true","3:true","4:false"}, delimiter = ':')
     @DisplayName("Set 값 존재 확인")
-    public void setTest03(int inputNumber, boolean isFree) throws Exception {
+    public void setCheckValue2(int inputNumber, boolean isFree) throws Exception {
+        // then
         assertThat(numbers.contains(inputNumber)).isEqualTo(isFree);
     }
 }
